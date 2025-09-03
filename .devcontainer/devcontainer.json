@@ -1,0 +1,19 @@
+{
+  "name": "Django Dev Container",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "web",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+    "ms-python.python",
+    "ms-azuretools.vscode-docker"
+  ],
+  "settings": {
+    "python.pythonPath": "/usr/local/bin/python"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/app,target=/app,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.env,target=/app/.env,type=bind"
+  ],
+  "postCreateCommand": "pip install --no-cache-dir -r ${workspaceFolder}/../requirements.txt"
+}
