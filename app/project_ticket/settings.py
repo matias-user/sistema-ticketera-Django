@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tickets.urls'
+ROOT_URLCONF = 'project_ticket.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tickets.wsgi.application'
+WSGI_APPLICATION = 'project_ticket.wsgi.application'
 
 
 # Database
