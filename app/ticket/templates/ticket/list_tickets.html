@@ -1,0 +1,34 @@
+{% extends 'common/base.html' %}
+{% block title %}Listado tickets{% endblock %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Creado por</th>
+            <th scope="col">Fecha de creación</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    {% for ticket in tickets %}
+    <tbody>
+        <tr>
+            <th scope="row">{{ ticket.id }}</th>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.user_id }}</td>
+            <td>{{ ticket.created_at }}</td>
+            <td>
+                <a 
+                    class="btn btn-primary"
+                    href="{% url 'ticket:detail_ticket' id=ticket.id %}"
+                    >
+                    Ir a detalle
+                </a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}
