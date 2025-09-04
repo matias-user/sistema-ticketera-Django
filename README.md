@@ -20,3 +20,24 @@
 - **Report**
 - **Notification**
 
+
+devcontainer.json
+{
+  "name": "Django Dev Container",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "web",
+  "workspaceFolder": "/app",
+  "settings": {
+    "python.defaultInterpreterPath": "/usr/local/bin/python",
+    "python.linting.enabled": true,
+    "python.analysis.extraPaths": ["/app"]
+  },
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ],
+  "forwardPorts": [8000],
+  "remoteUser": "root"
+}
