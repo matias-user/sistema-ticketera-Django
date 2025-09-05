@@ -3,5 +3,21 @@
 
 {% block content %}
     <h2>Administrador Dashboard</h2>
-    
+    <h3>
+        {% if object %}
+            Editar {{ model_name  }}
+        {% else %}
+            Crear {{ model_name  }}
+        {% endif %}
+    </h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            Guardar
+        </button>
+        <a href="javascript:history.back()" class="btn btn-secondary">Cancelar</a>
+    </form>
 {% endblock %}
