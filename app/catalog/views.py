@@ -1,6 +1,6 @@
 from django.views.generic import UpdateView, DeleteView, CreateView, TemplateView
 
-from catalog.models import Category, Department, Priority, State
+from .models import Category, Department, Priority, State
 from .forms import CategoryForm, DepartmentForm, PriorityForm, StateForm
 
 # Create your views here.
@@ -19,15 +19,26 @@ class ManageEntitiesView(TemplateView):
         context['state_form'] = StateForm()
         return context
 
+#Generic
+class BaseEntityView:
+    template_name = 'catalog/manage_entities.html'
+    fields = '__all__'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["model_name"] = self.model._meta.verbose_name
+        return context
+
 # Category
-class CategoryUpdateView(UpdateView):
+class CategoryUpdateView(BaseEntityView, UpdateView ):
     model = Category
 
-class CategoryCreateView(CreateView):
+class CategoryCreateView(BaseEntityView, CreateView ):
     model = Category
 
-class CategoryDeleteView(DeleteView):
+class CategoryDeleteView(BaseEntityView, DeleteView ):
     model = Category
+    
 
 # Department
 class DepartmentUpdateView(UpdateView):
