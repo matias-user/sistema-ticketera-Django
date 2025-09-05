@@ -33,16 +33,11 @@ class BaseEntityView:
 class CategoryUpdateView(BaseEntityView, UpdateView ):
     model = Category
 
-
 class CategoryCreateView(BaseEntityView, CreateView ):
     model = Category
 
-
-
 class CategoryDeleteView(BaseEntityView, DeleteView ):
     model = Category
-    fields = ['name','description']
-    template_name = 'catalog/manage_entities.html'
     
 
 # Department
