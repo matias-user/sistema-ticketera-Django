@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from catalog.models import Category, Department, State, Priority
 
 # Create your models here.
 class Ticket(models.Model):
@@ -8,7 +9,11 @@ class Ticket(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     closed_at = models.DateTimeField(null=True)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tickets")
+    user = models.ForeignKey(
+        User, 
+        on_delete=models.CASCADE, 
+        related_name="tickets"
+    )
     assigned_to = models.ForeignKey(
         User,
         on_delete= models.SET_NULL,
@@ -16,7 +21,33 @@ class Ticket(models.Model):
         blank=True,
         related_name="assigned_tickets" 
     )
-
+    departement = models.ForeignKey(
+        Department,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="tickets"
+    )
+    categories = models.ManyToManyField( 
+        Category, 
+        related_name="tickets",
+        blank=True,
+        null=True
+    )
+    priority = models.ForeignKey(
+        Priority,
+        on_delete=models.SET_NULL,
+        related_name="tickets",
+        blank=True,
+        null=True
+    ),
+    state = models.ForeignKey(
+        State,
+        on_delete=models.SET_NULL,
+        related_name="tickets",
+        blank=True,
+        null=True
+    ),
 
     def __str__(self) -> str:
         return self.title
