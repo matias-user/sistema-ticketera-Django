@@ -28,7 +28,7 @@ environ.Env.read_env(os.path.join(os.path.dirname(os.path.dirname(os.path.abspat
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
-
+LOGIN_REDIRECT_URL = '/tickets'
 ALLOWED_HOSTS = []
 
 # Application definition
