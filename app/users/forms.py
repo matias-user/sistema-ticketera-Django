@@ -1,5 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
+
+from users.models import CustomUser
 
 class CustomLoginForm(AuthenticationForm):
     username = forms.CharField(
@@ -18,3 +21,9 @@ class CustomLoginForm(AuthenticationForm):
             }
         )
     )
+
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = ['name','dni','username','password']
