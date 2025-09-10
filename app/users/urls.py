@@ -6,11 +6,15 @@ from .forms import CustomLoginForm
 app_name = 'users'
 urlpatterns = [
     path('profile/<int:pk>', views.ProfileDetailView.as_view(), name='profile'),
-    path(
-        'login/', 
+    path('login/', 
         auth_views.LoginView.as_view(
             template_name='users/login.html',
             authentication_form=CustomLoginForm       
         ), 
-        name='login'),
+        name='login'
+        ),
+    path('register/',
+        views.CustomUserCreateView.as_view(),
+        name='register'
+        )
 ]
