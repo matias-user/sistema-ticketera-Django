@@ -6,6 +6,7 @@ from users.models import CustomUser, Profile
 from ticket.models import Ticket
 from .forms import CustomUserCreationForm
 
+
 # Create your views here.
 class ProfileDetailView(DetailView):
     model = Profile
@@ -23,3 +24,4 @@ class CustomUserCreateView(CreateView):
     form_class = CustomUserCreationForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('users:login')
+
