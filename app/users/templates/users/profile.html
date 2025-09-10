@@ -2,5 +2,46 @@
 {% block title %}Perfil usuario{% endblock %}
 
 {% block content %}
-    <h2>Bienvenido, <small>{{object.name}}</small></h2> 
+<section class="mt-2">
+    <h2>Bienvenido, {{profile.user.name}}</h2>
+
+    <h3>{{ profile.phone }}</h3>
+    <h3>{{ profile.dni }}</h3>
+</section>
+
+<table class="table table-bordered" >
+    <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Creado por</th>
+            <th scope="col">Fecha de creación</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ticket in tickets %}
+        <tr>
+            <th scope="row">{{ ticket.id }}</th>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.user_id }}</td>
+            <td>{{ ticket.created_at }}</td>
+            <td>
+                <a 
+                    class="btn btn-primary"
+                    href="{% url 'ticket:detail_ticket' id=ticket.id %}"
+                    >
+                    Ir a detalle
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>
+                No hay tickets asociados.
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

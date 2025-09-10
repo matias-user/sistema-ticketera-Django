@@ -8,8 +8,9 @@
         <div class="collapse navbar-collapse"  id="navbar">
             <div class="navbar-nav">
                 <a class="nav-link" href="">Home</a>
-                <a class="nav-link" href="">Perfil</a>
-
+                {% if request.user %}
+                <a class="nav-link" href="{% url 'users:profile' pk=request.user.id %}">Perfil</a>
+                {% endif %}
             </div>
         </div>
     </div>
