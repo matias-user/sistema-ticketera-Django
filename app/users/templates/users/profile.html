@@ -3,15 +3,16 @@
 
 {% block content %}
 <section class="mt-2">
-    <h2>Bienvenido, {{profile.user.name}}</h2>
+    <h2>Bienvenido, {{profile.user.name}} gi</h2>
 
     <h3>{{ profile.phone }}</h3>
-    <h3>{{ profile.dni }}</h3>
+    <h3>{{ profile.deparment }}</h3>
 </section>
 
-<table class="table table-bordered" >
+<h3 class="mt-5" >Tickets cerrados</h3>
+<table class="table table-bordered mt-4">
     <thead>
-          <tr>
+        <tr>
             <th scope="col">#</th>
             <th scope="col">Titulo</th>
             <th scope="col">Creado por</th>
@@ -21,26 +22,21 @@
     </thead>
     <tbody>
         {% for ticket in tickets %}
+        {% if ticket.closed_at is not None %}
         <tr>
             <th scope="row">{{ ticket.id }}</th>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.user_id }}</td>
             <td>{{ ticket.created_at }}</td>
+            <td>{{ ticket.closed_at }}</td>
             <td>
-                <a 
-                    class="btn btn-primary"
-                    href="{% url 'ticket:detail_ticket' id=ticket.id %}"
-                    >
+                <a class="btn btn-primary" href="{% url 'ticket:detail_ticket' pk=ticket.id %}">
                     Ir a detalle
                 </a>
             </td>
         </tr>
-        {% empty %}
-        <tr>
-            <td>
-                No hay tickets asociados.
-            </td>
-        </tr>
+
+        {% endif %}
         {% endfor %}
     </tbody>
 </table>
