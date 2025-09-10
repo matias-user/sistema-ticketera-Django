@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import CustomUser
 from catalog.models import Category, Department, State, Priority
 
 # Create your models here.
@@ -10,12 +10,12 @@ class Ticket(models.Model):
     update_at = models.DateTimeField(auto_now=True)
     closed_at = models.DateTimeField(null=True)
     user = models.ForeignKey(
-        User, 
+        CustomUser, 
         on_delete=models.CASCADE, 
         related_name="tickets"
     )
     assigned_to = models.ForeignKey(
-        User,
+        CustomUser,
         on_delete= models.SET_NULL,
         null=True,
         blank=True,

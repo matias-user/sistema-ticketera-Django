@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 LOGIN_REDIRECT_URL = '/tickets'
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = "users.CustomUser"
 # Application definition
 
 INSTALLED_APPS = [
