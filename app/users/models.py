@@ -22,7 +22,8 @@ class Profile(models.Model):
         return self.user.username
 
 class CustomUser(AbstractUser):
-    name = models.CharField( unique=True, max_length=200 )
+    name = models.CharField( max_length=100, verbose_name='Nombre' )
+    lastname = models.CharField( max_length=100, verbose_name='Apellido' )
     dni = models.CharField(
         max_length=8,
         validators=[
@@ -30,7 +31,8 @@ class CustomUser(AbstractUser):
             regex=r'^[0-9]{7,8}-[0-9Kk]$',
             message="El RUT debe estar en formato 12345678-9 o 12345678-K",
             code="invalid_rut"
-            )]    
+        )],
+        verbose_name='RUT'
     )
 
     def __str__(self) -> str:
