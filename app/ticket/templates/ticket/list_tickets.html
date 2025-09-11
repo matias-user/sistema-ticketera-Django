@@ -23,14 +23,12 @@
             <th scope="row">{{ ticket.id }}</th>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.user.name }}</td>
-            <td>{{ ticket.user.state }}</td>
-            <td>{{ ticket.user.priority }}</td>
+            <td>{{ ticket.state }}</td>
+            <td>{{ ticket.priority }}</td>
             <td>{{ ticket.created_at }}</td>
             <td>{{ ticket.department }}</td>
             <td>{{ ticket.assigned_to }}</td>
-            <td>
-                {{ticket.categories}}
-            </td>
+            <td>{{ticket.categories}}</td>
             <td>
                 <a 
                     class="btn btn-primary"
