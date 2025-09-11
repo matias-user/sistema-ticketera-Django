@@ -2,12 +2,15 @@
 {% block title %}Registro de usuario{% endblock %}
 
 {% block content %}
-    <section class="mt-2" >
+    <section class="mt-2 d-grid" >
         <h2>Registro de usuarios</h2>
-        <form method="post" >
+        <form method="post" class="mt-4 col-8" >
             {% csrf_token %}
 
             {{ form.as_p }}
+
+            <button class="btn btn-primary" type="submit" >Confirmar</button>
+            <a href="{% url 'users:login' %}" class="btn btn-secondary ms-4" >Volver</a>
         </form>
     </section>
 {% endblock %}

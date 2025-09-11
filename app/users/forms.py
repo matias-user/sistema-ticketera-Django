@@ -24,6 +24,20 @@ class CustomLoginForm(AuthenticationForm):
 
 
 class CustomUserCreationForm(UserCreationForm):
+    password1 = forms.CharField(
+        label="Contraseña",
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Ingresa tu contraseña'})
+    )
+    password2 = forms.CharField(
+        label="Confirmar contraseña",
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Repite tu contraseña'})
+    )
     class Meta:
         model = CustomUser
-        fields = ['name','dni','username','password']
+        fields = ['name','dni','username','lastname']
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control','placeholder':'Nombre'}),
+            'lastname': forms.TextInput(attrs={'class':'form-control','placeholder':'Apellido'}),
+            'dni': forms.TextInput(attrs={'class':'form-control','placeholder':'99999999-9'}),
+            'username': forms.TextInput(attrs={'class':'form-control','placeholder':'usuario_1'}),
+        }
