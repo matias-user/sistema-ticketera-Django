@@ -40,14 +40,14 @@ class Ticket(models.Model):
         related_name="tickets",
         blank=True,
         null=True
-    ),
+    )
     state = models.ForeignKey(
         State,
         on_delete=models.SET_NULL,
         related_name="tickets",
         blank=True,
         null=True
-    ),
+    )
 
     def __str__(self) -> str:
         return self.title

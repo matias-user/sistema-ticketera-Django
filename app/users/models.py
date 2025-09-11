@@ -25,7 +25,7 @@ class CustomUser(AbstractUser):
     name = models.CharField( max_length=100, verbose_name='Nombre' )
     lastname = models.CharField( max_length=100, verbose_name='Apellido' )
     dni = models.CharField(
-        max_length=8,
+        max_length=12,
         validators=[
             RegexValidator(
             regex=r'^[0-9]{7,8}-[0-9Kk]$',
