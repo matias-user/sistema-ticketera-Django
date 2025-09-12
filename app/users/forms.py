@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm
 
-from project_ticket.utils.forms import BootstraClassespMixin
+from common.forms import BootstraClassespMixin
 from users.models import CustomUser
 
 class CustomLoginForm(BootstraClassespMixin, AuthenticationForm):

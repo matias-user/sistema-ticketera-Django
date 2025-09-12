@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ticket',
     'catalog',
-    'users'
+    'users',
+    'common'
 ]
 
 MIDDLEWARE = [
