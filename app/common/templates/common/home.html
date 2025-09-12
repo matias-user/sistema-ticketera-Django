@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+<h1 class="mt-2" >Sistema de tickets</h1>
+
+<section class="d-grid mt-2">
+    <p>
+        Bienvenido a nuestro sistema de gestión de tickets.
+        Aquí podrás reportar incidencias, dar seguimiento a tus solicitudes
+        y mantener una comunicación clara con el equipo de soporte.
+        Accede con tu cuenta o regístrate para comenzar a usar todas las funciones.
+    </p>
+    <a href="{% url 'users:login' %}" class="btn btn-primary" >Inicia sesión</a>
+</section>
+{% endblock %}
