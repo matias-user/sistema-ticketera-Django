@@ -2,13 +2,50 @@
 {% block title %}Detalle ticket - ID: {{ ticket.id }}{% endblock %}
 
 {% block content %}
-    <section class="mt-3" >
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{ticket.title}}</h5>
-                <h6 class="card-subtitle">Fecha de creación: {{ticket.created_at}}</h6>
-            </div>
-        </div>
+<section class="mt-3">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Ticket: {{ticket.title}}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5 class="card-subtitle my-2">ID: {{ticket.pk}}</h5>
 
-    </section>
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Descripción:</strong> {{ticket.description}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Asignado a:</strong> {{ticket.assigned_to}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Estado:</strong> {{ticket.state}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Prioridad:</strong> {{ticket.priority}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Fecha creación:</strong> {{ticket.created_at}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Departamento:</strong> {{ticket.department}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Categorías:</strong> {{ticket.categories}}</p>
+
+                    </li>
+                    <li class="list-group-item">
+                        <p><strong>Fecha de creación:</strong> {{ticket.created_at}}</p>
+
+                    </li>
+                </ul>
+        </div>
+    </div>
+
+</section>
 {% endblock %}
