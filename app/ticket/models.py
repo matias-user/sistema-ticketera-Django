@@ -8,7 +8,7 @@ class Ticket(models.Model):
     description = models.CharField(max_length=250, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    closed_at = models.DateTimeField(null=True)
+    closed_at = models.DateTimeField(null=True, blank=True)
     user = models.ForeignKey(
         CustomUser, 
         on_delete=models.CASCADE, 
