@@ -21,7 +21,7 @@ class Ticket(models.Model):
         blank=True,
         related_name="assigned_tickets" 
     )
-    departement = models.ForeignKey(
+    department = models.ForeignKey(
         Department,
         on_delete=models.SET_NULL,
         null=True,
