@@ -5,7 +5,7 @@ from catalog.models import Category, Department, State, Priority
 # Create your models here.
 class Ticket(models.Model):
     title = models.CharField(blank=False, null=False, max_length=50, unique=True)
-    description = models.CharField(max_length=250)
+    description = models.CharField(max_length=250, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     closed_at = models.DateTimeField(null=True)
