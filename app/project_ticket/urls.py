@@ -23,5 +23,6 @@ urlpatterns = [
     path('tickets/', include("ticket.urls")),
     path('catalogs/', include('catalog.urls')),
     path('users/', include('users.urls')),
+    path('report/', include('report.urls')),
 ]
 
