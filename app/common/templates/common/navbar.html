@@ -1,18 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" >
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" 
-        aria-controls="navbar" aria-expanded="false" 
-        aria-label="Toggle navigation" >
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse"  id="navbar">
+        <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav">
                 <a class="nav-link" href="">Home</a>
                 {% if request.user.is_authenticated %}
                 <a class="nav-link" href="{% url 'users:profile' pk=request.user.profile.pk %}">Perfil</a>
                 {% endif %}
                 <a class="nav-link" href="{% url 'users:register' %}">Registro</a>
-                <a class="nav-link" href="{% url 'ticket:list_tickets' %}">Tickets</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">Tickets</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'ticket:create' %}">Nuevo ticket</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ticket:list_tickets' %}">Ver tickets</a></li>
+                    </ul>
+                </li>
             </div>
         </div>
     </div>
