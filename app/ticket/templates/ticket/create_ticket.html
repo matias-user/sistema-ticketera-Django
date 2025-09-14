@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+{% block title %}Nuevo ticket{% endblock %}
+{% block content %}
+
+<section class="mt-2 container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-3">
+            <div class="col-6">
+                {{form.title.label_tag}}
+                {{form.title}}
+
+            </div>
+            <div class="col-6">
+                {{form.assigned_to.label_tag}}
+                {{form.assigned_to}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{form.categories.label_tag}}
+                {{form.categories}}
+
+                {{form.department.label_tag}}
+                {{form.department}}
+
+            </div>
+            <div class="col-6">
+                {{form.description.label_tag}}
+                {{form.description}}
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+    </form>
+
+
+</section>
+{% endblock %}
