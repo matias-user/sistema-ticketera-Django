@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'ticket',
     'catalog',
     'users',
-    'common'
+    'common',
+    'report'
 ]
 
 MIDDLEWARE = [
