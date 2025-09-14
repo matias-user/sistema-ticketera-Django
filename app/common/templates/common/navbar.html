@@ -12,6 +12,7 @@
                 <a class="nav-link" href="{% url 'users:profile' pk=request.user.profile.pk %}">Perfil</a>
                 {% endif %}
                 <a class="nav-link" href="{% url 'users:register' %}">Registro</a>
+                <a class="nav-link" href="{% url 'ticket:list_tickets' %}">Tickets</a>
             </div>
         </div>
     </div>
