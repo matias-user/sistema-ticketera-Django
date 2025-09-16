@@ -26,7 +26,7 @@
                 <td>{{ ticket.user.name }}</td>
                 <td id="state" ><span>{{ ticket.state }}</span></td>
                 <td id="priority" ><span>{{ ticket.priority }}</span></td>
-                <td>{{ ticket.created_at }}</td>
+                <td>{{ ticket.created_at|date:"d/m/Y H:i" }}</td>
                 <td>{{ ticket.department }}</td>
                 <td>{{ ticket.assigned_to }}</td>
                 <td>{{ticket.categories}}</td>
