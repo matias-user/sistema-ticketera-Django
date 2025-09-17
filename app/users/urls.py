@@ -12,9 +12,24 @@ urlpatterns = [
             authentication_form=CustomLoginForm       
         ), 
         name='login'
-        ),
-    path('register/',
+    ),
+    path(
+        'register/',
         views.CustomUserCreateView.as_view(),
         name='register'
-        )
+    ),
+    path(
+        'password_reset/',
+        auth_views.PasswordResetView.as_view(
+            template_name='users/password_reset.html'
+        ),
+        name='password_reset'     
+    ),
+    path(
+        'reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(
+            template_name='users/password_reset_confirm.html'
+        ),
+        name='password_reset_confirm'     
+    )
 ]
